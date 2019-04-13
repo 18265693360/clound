@@ -8,7 +8,9 @@ export default {
   register:'/register',       //获取登录接口
   login:'/login_html',        //验证登录 专用H5接口
   user:'/user',               //获取用户数据
+  changeUser:'/user',         //修改用户数据
   getReadList:'/readList',          //获取用户读过的书
+  changePassword:'/changePassword',  //修改用户密码
 }
 
 

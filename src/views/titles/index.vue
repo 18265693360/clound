@@ -1,6 +1,16 @@
 <template>
+
     <div class="container">
-      <ul class="titles">
+
+      <!--<Header fixed title="目录">-->
+        <!--&lt;!&ndash;都可以立即回到首页 但是要返回前面的页面 就需 :to="{name:'页面'}" &ndash;&gt;-->
+        <!--<router-link :to="{name:'details'}" slot="left">-->
+          <!--<Button icon="back" style="width:68px; font-size: 14px;">返回</Button>-->
+        <!--</router-link>-->
+      <!--</Header>-->
+
+
+      <ul class="titles" style="margin-top: 30px;">
         <li class="title-item" v-for = "(item,index) in titles" :key="index">
           <router-link :to="{name:'article', params:{id: item._id}}">
             <!--{{item.titles}}多了一个's'-->
@@ -12,13 +22,19 @@
 </template>
 
 <script>
+  import {Button, Header} from 'mint-ui'
+
   export default {
     name: "titles",
     data(){
       return{
         titles:[],
-        bookData:{}
+        bookData:{},
       }
+    },
+    components:{
+      Button,
+      Header,
     },
     methods:{
       //gitTitles需要api 去接口那里调取 去api中设置

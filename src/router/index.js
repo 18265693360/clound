@@ -47,34 +47,124 @@ const router = new Router({ //存储路由实例
         },
       ]
     },
+    {
+      path:'layout2',
+      name:'headers-layout',
+      component:() => import('@/views/headers-layout'),
+      children:[
+        {
+          path:'/details/:id',
+          name:'details',
+          // 写错了 component:() => import('@/views/details'),
+          component:() => import('@/views/details'),
+          meta:{
+            title:'书籍详情'
+          }
+        },
+        {
+          path:'/titles/:id',
+          name:'titles',
+          meta:{
+            title:'目录'
+          },
+          component:() =>import('@/views/titles')
+        },
+        {
+          path:'/article/:id',
+          name:'article',
+          meta:{
+            title:'文章详情'
+          },
+          component:() => import('@/views/article')
+        },
+        {
+          path:'/changemsg',
+          name:'changemsg',
+          meta:{
+            title:'修改个人信息'
+          },
+          component:() => import('@/views/changemsg')
+        },
+        {
+          path:'/changeName',
+          name:'changeName',
+          meta:{
+            title:'修改昵称'
+          },
+          component:() => import('@/views/changeName')
+        },
+        {
+          path:'/changePassword',
+          name:'changePassword',
+          meta:{
+            title:'修改密码'
+          },
+          component:() => import('@/views/changePassword')
+        },
+      ]
+
+    },
+    // 嵌套路由 直接来就行 不用再去里面嵌套
+    // {
+    //   path: 'layout2',
+    //   name: 'headers-layout',
+    //   component: () => import('@/views/headers-layout'),
+    //   children: [
+    //     {
+    //       path: '/details/:id',
+    //       name: 'details',
+    //       component: () => import('@/views/details'),
+    //       meta: {
+    //         title: '书籍详情'
+    //       }
+    //     },
+    //     {
+    //       path: '/titles/:id',
+    //       name: 'titles',
+    //       meta: {
+    //         title: '目录'
+    //       },
+    //       component: () => import('@/views/titles')
+    //     },
+    //     {
+    //       path: '/article/:id',
+    //       name: 'article',
+    //       meta: {
+    //         title: '文章详情'
+    //       },
+    //       component: () => import('@/views/article')
+    //     }
+    //   ]
+    // },
+
     //引入书籍详情页
-    {
-      path:'/details/:id',
-      //加入动态路由 ：id 为了点击轮播图也可以跳转
-      name:'details',
-      component:() => import('@/views/details'),
-      meta:{
-        title:'书籍详情页'
-      }
-    },
-    {
-      //引入动态路由 :id
-      path:'/titles/:id',
-      name:'titles',
-      meta:{
-        title:'目录'
-      },
-    component:() => import('@/views/titles')
-    },
-    {
-      // path:'m.yaojunrong.com/article/:id',
-      path:'/article/:id',
-      name:'article',
-      meta:{
-        title:'文章详情'
-      },
-      component:() => import('@/views/article')
-    },
+    // {
+    //   path:'/details/:id',
+    //   //加入动态路由 ：id 为了点击轮播图也可以跳转
+    //   name:'details',
+    //   meta:{
+    //     title:'书籍详情页'
+    //   },
+    //   component:() => import('@/views/details'),
+    // },
+    // {
+    //   //引入动态路由 :id
+    //   path:'/titles/:id',
+    //   name:'titles',
+    //   meta:{
+    //     title:'目录'
+    //   },
+    // component:() => import('@/views/titles')
+    // },
+    // {
+    //   // path:'m.yaojunrong.com/article/:id',
+    //   path:'/article/:id',
+    //   name:'article',
+    //   meta:{
+    //     title:'文章详情'
+    //   },
+    //   component:() => import('@/views/article')
+    // },
     {
       // 这里的不在layout中的都是要加 /
       path:'/login',
@@ -96,13 +186,13 @@ const router = new Router({ //存储路由实例
       component:() => import('@/views/register')
     },
     {
-      path:'/changemsg',
-      name:'changemsg',
+      path:'/test',
+      name:'test',
       meta:{
-        title:'修改个人信息'
+        title:'测试专用页'
       },
-      component:() => import('@/views/changemsg')
-    },
+      component:() => import('@/views/test.vue')
+    }
   ]
 });
 

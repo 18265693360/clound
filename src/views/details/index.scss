@@ -105,14 +105,16 @@
   position: fixed;
   bottom: 10px;
   padding: 20px px-to-rem(18);
-}
-/*方框中的文字 内容*/
-/deep/ .mint-button-text{
-  font-size: 20px;
+
+  /*方框中的文字 内容*/
+  /deep/ .mint-button-text{
+    font-size: 20px;
+  }
+
+  /deep/ .mint-button{
+    width: 300px;
+    height: 80px;
+  }
+  /*改格式 阅读这本书*/
 }
 
-/deep/ .mint-button{
-  width: 300px;
-  height: 80px;
-}
-/*改格式 阅读这本书*/

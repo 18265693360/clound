@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-
     <div id="dom"></div>
-
     <div class="content markdown" :style="{fontSize:fontSize + 'px'}" v-html="html"></div>
       <div class="btns">
         <i class="iconfont icon-shangyizhang" @click="handleJump('prev')"></i>
@@ -29,7 +27,7 @@
 <script>
   //引入 Showdown 首字母大写需要初始化一个实例
   import Showdown from  'showdown'
-  import { Toast } from 'mint-ui';
+  import { Toast, Button, Header } from 'mint-ui';
 
   export default {
     name: "liu-article",
@@ -49,6 +47,10 @@
         isShowTitles:false,
         isActive:false,
       }
+    },
+    components:{
+      Button,
+      Header,
     },
 
     methods:{

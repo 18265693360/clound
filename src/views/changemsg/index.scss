@@ -11,7 +11,6 @@
     font-weight: 800;
     justify-content: space-between;
     padding: px-to-rem(32);
-    background: #2196f3;
     display: flex;
     align-items: center;
     .nav-item{
@@ -60,13 +59,13 @@
     align-items: center;
 
     .msg-item{
-      text-align: left;
       margin-top: 20px;
       font-size: 16px;
       color: #333333;
       display: flex;
       background: #ffffff;
       justify-content: space-between;
+
     .head{
       margin-top: 20px;
     }
@@ -90,6 +89,29 @@
 
 
     }
+
+    .item-name{
+      text-align: center;
+
+        .item-content{
+          font-size: 16px;
+          margin: 20px 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .item-password{
+      text-align: center;
+
+        .item-content{
+          font-size: 16px;
+          margin: 20px 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
     .liner{
       margin-top: 20px;
       height: 2px;

@@ -86,31 +86,39 @@
 <template>
   <!--注意这里的 my-learn在引号中间-->
   <div class="container my-learn">
-    <div class="my-learn-item">
+    <div class="my-learn-item" v-for="(item, index) in arr" :key="index" >
       <div class="img-wrap">
-        <img src="../../assets/p1.jpg" alt="">
+        <img :src="item.book.img" alt="">
       </div>
 
       <div class="book-msg">
         <h2 class="title">
-          SASS中文教程
+          {{item.book.title}}
         </h2>
         <div class="read-msg">
-          书籍3/5章节
+          书籍{{item.title.index + 1}}/{{item.title.total}}章节
         </div>
         <div class="progress-wrap">
-          <progress  :value="20" :bar-height="5" style="background: lawngreen;"></progress>
+          <div class="progress-box" style="flex:1">
+          <read-progress :total="100" :value="value"></read-progress>
+          </div>
+          <read-progress  :value="20" :bar-height="5" style="background: lawngreen;"></read-progress>
           <div class="progress-item">
-            已看60%
+            已看{{(item.title.index/item.title.total).toFixed(2)*100 + ''}}%
           </div>
         </div>
         <div class="recent-read-item">
           <div class="recent-read">
-            上次查看:安装SASS
+            上次查看:{{item.title.title}}
           </div>
+
+          <!-- 这里才是组件位置<div class="recent-read-day">-->
+            <!--13天前-->
+          <!--</div> -->
           <div class="recent-read-day">
-            13天前
+            <recent-read :value="item.updateTime || 123" />
           </div>
+
         </div>
         <div class="btns-wrap">
           <Button type="default" size="small">继续阅读</Button>
@@ -122,14 +130,39 @@
 </template>
 
 <script>
-  import {Button, Progress} from 'mint-ui';
+  import {Button} from 'mint-ui';
+  import readProgress from '@/components/read-progress';
+  import recentRead from '@/components/recent-read';
 
   export default {
     name: "index",
+    data(){
+      return{
+        value:80,
+        // time: new Data 人家这里就是'date' ('2019-04-01T03:56:59.418Z')
+        time: new Date('2019-04-01T03:56:59.418Z'),
+        arr:[]
+      }
+    },
     components:{
       Button,
-      Progress,
-    }
+      // Progress,  多出来的 什么时候加上的 之后报错 要看看命名注册这里
+      readProgress,
+      recentRead
+    },
+    methods:{ //获取服务端数据
+      getData(){
+        this.$axios.get(this.$api.getReadList).then(res=>{
+          if (res.code == 200){
+            this.arr = res.data.map(item => item)
+          }
+        })
+      }
+    },
+    created(){
+      // this.getDate() 是getData
+      this.getData()
+    },
   }
 </script>
 

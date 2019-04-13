@@ -10,8 +10,8 @@
           </div>
         </div>
         <div class="top1-right">
-          <img src="@/assets/p1.jpg" alt="">
-          <!--实际开发中<img src="@/assets/p1.jpg" alt="" 添加类名class="avaert">-->
+          <img src="@/assets/avatar_default.jpg" alt="">
+          <!--实际开发中<img src="@/assets/avatar_default.jpg" alt="" 添加类名class="avaert">-->
           <i class="iconfont icon-fanhui"></i>
         </div>
       </router-link>
@@ -25,7 +25,7 @@
         </div>
         <div class="top1-right">
           <img :src="userMsg.user.avatar || fortruth " alt="">
-          <!--实际开发中<img src="@/assets/p1.jpg" alt="" 添加类名class="avaert">-->
+          <!--实际开发中<img src="@/assets/avatar_default.jpg" alt="" 添加类名class="avaert">-->
         </div>
       </div>
 
@@ -95,10 +95,10 @@
 
     </div>
     <Button class="logout" type="danger" size="large">退出登录</Button>
-    <Button icon="more">更多</Button>
-    <Button icon="back">返回</Button>
-    <Button plain>plain</Button>
-    <Button disabled="">plain</Button>
+    <!--<Button icon="more">更多</Button>-->
+    <!--<Button icon="back">返回</Button>-->
+    <!--<Button plain>plain</Button>-->
+    <!--<Button disabled="">plain</Button>-->
   </div>
 </template>
 

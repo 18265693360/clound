@@ -1,5 +1,14 @@
 <template>
   <div class="container">
+
+    <!--<Header fixed title="文章详情页">-->
+      <!--<router-link to="/index" slot="left">-->
+        <!--&lt;!&ndash;要设置宽度 不然就不会在左边 因为样式中有 /deep/样式所以导致样式被覆盖 以后将子样式写在父元素中 不然无法改别的样式&ndash;&gt;-->
+        <!--<Button icon="back" style="width:68px; font-size: 14px;">返回</Button>-->
+      <!--</router-link>-->
+    <!--</Header>-->
+
+
     <div class="book">
       <!--book start-->
       <div class="book-left">
@@ -63,7 +72,7 @@
 
 <script>
   //加入按钮
-  import {Button} from 'mint-ui'
+  import {Button, Header} from 'mint-ui'
   //引入时间
   import moment from 'moment'
 
@@ -71,7 +80,8 @@
     name: "liu-details",
     //引入按钮
     components:{
-      Button
+      Button,
+      Header,
     },
     //details已经作为一个标签 不能用details引入
     data(){

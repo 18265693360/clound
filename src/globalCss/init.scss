@@ -28,6 +28,10 @@ a{
   padding: px-to-rem(30);
 }
 
+label{
+  text-decoration: none;
+}
+
 //去除 ul上的默认样式
 ul{
   padding: 0;

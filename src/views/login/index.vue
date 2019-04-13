@@ -50,7 +50,7 @@
         // }
         handleJumpDD(){
           let phoneStatus = validator.isMobilePhone(this.formData.phone,'zh-CN')
-          let passwordStatus = validator.isLength(this.formData.password,{min:6})
+          let passwordStatus = validator.isLength(this.formData.password,{min:3})
           if (phoneStatus&&passwordStatus){
             // this.$axios.post(this.$api.login.这里是一逗号this.formData).then(res => {
             this.$axios.post(this.$api.login,this.formData).then(res => {
